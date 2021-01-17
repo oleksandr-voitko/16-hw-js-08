@@ -65,11 +65,11 @@ function onOpenLightbox (event) {
 function onPressArrow (event) {
     if (event.code === 'ArrowRight') {
         const nextIndex = Number(refs.lightboxImage.dataset.index) + 1;
-        if (nextIndex > gallery.map(item => item.original).length - 1) {
+        if (nextIndex > gallery.length - 1) {
             return;
         };
 
-        const nextURL = gallery.map(item => item.original)[nextIndex];
+        const nextURL = gallery[nextIndex].original;
         setLargeImageSrc(nextURL, nextIndex);
 
     } else if (event.code === 'ArrowLeft') {
@@ -78,7 +78,7 @@ function onPressArrow (event) {
             return;
         };
 
-        const pastURL = gallery.map(item => item.original)[pastIndex];
+        const pastURL = gallery[pastIndex].original;
         setLargeImageSrc(pastURL, pastIndex);
     }
 };
